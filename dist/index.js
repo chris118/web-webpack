@@ -106,7 +106,18 @@ eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _greeter = __webpack_require__(/*! ./greeter */ \"./src/greeter.js\");\n\ndocument.querySelector(\"#root\").appendChild((0, _greeter.greeter)()); //ES6 import//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvaW5kZXguanM/YjYzNSJdLCJuYW1lcyI6WyJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3IiLCJhcHBlbmRDaGlsZCJdLCJtYXBwaW5ncyI6Ijs7QUFDQTs7QUFFQUEsU0FBU0MsYUFBVCxDQUF1QixPQUF2QixFQUFnQ0MsV0FBaEMsQ0FBNEMsdUJBQTVDLEUsQ0FIQSIsImZpbGUiOiIuL3NyYy9pbmRleC5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vRVM2IGltcG9ydFxuaW1wb3J0IHsgZ3JlZXRlciB9IGZyb20gXCIuL2dyZWV0ZXJcIjtcblxuZG9jdW1lbnQucXVlcnlTZWxlY3RvcihcIiNyb290XCIpLmFwcGVuZENoaWxkKGdyZWV0ZXIoKSk7Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/index.js\n");
+eval("\n\nvar _greeter = __webpack_require__(/*! ./greeter */ \"./src/greeter.js\");\n\n__webpack_require__(/*! ./index.scss */ \"./src/index.scss\");\n\n//ES6 import\ndocument.querySelector(\"#root\").appendChild((0, _greeter.greeter)());//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvaW5kZXguanM/YjYzNSJdLCJuYW1lcyI6WyJkb2N1bWVudCIsInF1ZXJ5U2VsZWN0b3IiLCJhcHBlbmRDaGlsZCJdLCJtYXBwaW5ncyI6Ijs7QUFDQTs7QUFDQTs7QUFGQTtBQUlBQSxTQUFTQyxhQUFULENBQXVCLE9BQXZCLEVBQWdDQyxXQUFoQyxDQUE0Qyx1QkFBNUMiLCJmaWxlIjoiLi9zcmMvaW5kZXguanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvL0VTNiBpbXBvcnRcbmltcG9ydCB7IGdyZWV0ZXIgfSBmcm9tIFwiLi9ncmVldGVyXCI7XG5pbXBvcnQgJy4vaW5kZXguc2Nzcyc7XG5cbmRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIjcm9vdFwiKS5hcHBlbmRDaGlsZChncmVldGVyKCkpOyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/index.js\n");
+
+/***/ }),
+
+/***/ "./src/index.scss":
+/*!************************!*\
+  !*** ./src/index.scss ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9zcmMvaW5kZXguc2Nzcz9iNjEzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6Ii4vc3JjL2luZGV4LnNjc3MuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyByZW1vdmVkIGJ5IGV4dHJhY3QtdGV4dC13ZWJwYWNrLXBsdWdpbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./src/index.scss\n");
 
 /***/ })
 

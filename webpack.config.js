@@ -1,7 +1,7 @@
-//当前路径
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');//当前路径
+const CleanWebpackPlugin = require('clean-webpack-plugin') // 清空打包目录的插件
+const HtmlWebpackPlugin = require('html-webpack-plugin') // 生成html的插件
+const ExtractTextWebapckPlugin = require('extract-text-webpack-plugin') //CSS文件单独提取出来
 
 module.exports = {
   //选择的模式告诉webpack使用其内置的优化
@@ -25,7 +25,7 @@ module.exports = {
   },
   */
 
-  //入口文件
+  //多入口文件
   entry:{
     index: './src/index.js',
     greeter: './src/greeter.js'
@@ -37,21 +37,72 @@ module.exports = {
     //打出来是index.js和index2.js
     filename:'[name].js'
   },
-
+  resolve:{
+        extensions: [".js",".css",".json"],
+        alias: {} //配置别名可以加快webpack查找模块的速度
+  },
   //模块：例如ES6编译,解读CSS,图片如何转换，压缩
   module:{
        rules:[
             {
                 test: /\.js$/,
                  exclude: /node_modules/, 
-                 loader: "babel-loader"
-            }
+                 loader: "babel-loader" //ES6
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextWebapckPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader'] // 不再需要style-loader放到html文件内
+                }),
+                include: path.join(__dirname, 'src'), //限制范围，提高打包速度
+                exclude: /node_modules/
+            },
+            {
+                test:/\.less$/,
+                use: ExtractTextWebapckPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'postcss-loader', 'less-loader']
+                }),
+                include: path.join(__dirname, 'src'),
+                exclude: /node_modules/
+            },
+            {
+                test:/\.scss$/,
+                use: ExtractTextWebapckPlugin.extract({
+                    fallback: 'style-loader',
+                    use:['css-loader', 'postcss-loader', 'sass-loader']
+                }),
+                include: path.join(__dirname, 'src'),
+                exclude: /node_modules/
+            },
+            { //file-loader 解决css等文件中引入图片路径的问题
+            // url-loader 当图片较小的时候会把图片BASE64编码，大于limit参数的时候还是使用file-loader 进行拷贝
+                test: /\.(png|jpg|jpeg|gif|svg)/,
+                use: {
+                  loader: 'url-loader',
+                  options: {
+                    outputPath: 'images/', // 图片输出的路径
+                    limit: 1 * 1024
+                  }
+                }
+            },
+            { //file-loader 解决css等文件中引入图片路径的问题
+            // url-loader 当图片较小的时候会把图片BASE64编码，大于limit参数的时候还是使用file-loader 进行拷贝
+                test: /\.(png|jpg|jpeg|gif|svg)/,
+                use: {
+                  loader: 'url-loader',
+                  options: {
+                    outputPath: 'images/', // 图片输出的路径
+                    limit: 1 * 1024
+                  }
+                }
+            },
         ]
   },
   //插件，用于生产模版和各项功能
   plugins:[
     //new CleanWebpackPlugin(['dist']), //传入数组,指定要删除的目录
-
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
@@ -60,6 +111,7 @@ module.exports = {
       template: "./src/greeter.html",
       filename: "./greeter.html",
     }),
+    new ExtractTextWebapckPlugin('[name].css'),//ExtractTextWebapckPlugin
   ],
 
   //配置webpack开发服务功能
