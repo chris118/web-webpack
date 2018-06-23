@@ -1,5 +1,7 @@
 //当前路径
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   //选择的模式告诉webpack使用其内置的优化
@@ -39,7 +41,19 @@ module.exports = {
   //模块：例如解读CSS,图片如何转换，压缩
   module:{},
   //插件，用于生产模版和各项功能
-  plugins:[],
+  plugins:[
+    //new CleanWebpackPlugin(['dist']), //传入数组,指定要删除的目录
+
+    new HtmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html",
+    }),
+    new HtmlWebpackPlugin({
+      template: "./src/greeter.html",
+      filename: "./greeter.html",
+    }),
+  ],
+
   //配置webpack开发服务功能
   devServer: {
     // 设置服务器访问的基本目录
