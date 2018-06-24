@@ -102,7 +102,7 @@ module.exports = {
   },
   //插件，用于生产模版和各项功能
   plugins:[
-    //new CleanWebpackPlugin(['dist']), //传入数组,指定要删除的目录
+    new CleanWebpackPlugin(['dist']), //传入数组,指定要删除的目录
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
@@ -126,3 +126,6 @@ module.exports = {
     open:true
   }
 }
+
+//一些问题:
+//webpack-dev-server 服务器打包的后的文件并没有物理存在电脑上，只是在内存中, 所以不会生成dist 文件夹
